@@ -7,14 +7,14 @@ wiering
 ```
 C3K pin | board pin
 -----------+----------
-    GND     |    GND
-    Vin     |    Vin
-    IRG     |    Y3
-    V3EN    |    Y4
-    CS      |    Y5
-    CLK     |    Y6
-    MISO    |    Y7
-    MOSI    |    Y8
+GND     |    GND
+Vin     |    Vin
+IRG     |    Y3
+V3EN    |    Y4
+CS      |    Y5
+CLK     |    Y6
+MISO    |    Y7
+MOSI    |    Y8
 ```
 
 
