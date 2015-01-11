@@ -324,8 +324,8 @@ def ini(s_host,i_port):
 # import inic3k
 # inic3k.ini()
 
-#import httpserver86
-#httpserver86.ini('',80)
+#import httpserver
+#httpserver.ini('',80)
 
 #http://192.168.0.46/
 #http://192.168.0.46/index.htm
