@@ -6,7 +6,7 @@ wiering
 
 ```
 C3K pin | board pin
------------+----------
+--------+----------
 GND     |    GND
 Vin     |    Vin
 IRG     |    Y3
