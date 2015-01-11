@@ -1,5 +1,5 @@
 # HTTPServer
-HTTP Server wit Micro Phython an CC3000WiFi (Adafruit)
+HTTP Server wit Micro Phython (v1.3.8-43-gc114496) an CC3000WiFi (Adafruit)
 
 wiering
 -------
