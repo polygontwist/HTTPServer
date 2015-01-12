@@ -1,6 +1,8 @@
 import time
 import pyb
 import gc
+import sys
+import socket
 
 show_debug=False
 
@@ -127,46 +129,43 @@ def getMimeType(s_dateiname):
 	
 	if(s_dateiname.count('.htm')==1):
 		s_contenttype='text/html'
-	if(s_dateiname.count('.css')==1):
+	elif(s_dateiname.count('.css')==1):
 		s_contenttype='text/css'
-	if(s_dateiname.count('.txt')==1):
+	elif(s_dateiname.count('.txt')==1):
 		s_contenttype='text/plain'
-	if(s_dateiname.count('.js')==1):
+	elif(s_dateiname.count('.js')==1):
 		s_contenttype='text/javascript'
 		
-	if(s_dateiname.count('.xml')==1):
+	elif(s_dateiname.count('.xml')==1):
 		s_contenttype='text/xml'
 		
-	if(		s_dateiname.count('.mpeg')==1 or
+	elif(		s_dateiname.count('.mpeg')==1 or
 			s_dateiname.count('.mpg')==1 or
 			s_contenttype.count('.mpe')):
 		s_contenttype='video/mpeg'
 		
-	if(		s_dateiname.count('.jpe')==1 or
+	elif(		s_dateiname.count('.jpe')==1 or
 			s_dateiname.count('.jpeg')==1 or
 			s_contenttype.count('.jpg')):
 		s_contenttype='image/jpeg'
-	if(s_dateiname.count('.png')==1):
+	elif(s_dateiname.count('.png')==1):
 		s_contenttype='image/png'
-	if(s_dateiname.count('.gif')==1):
+	elif(s_dateiname.count('.gif')==1):
 		s_contenttype='image/gif'
-	if(s_dateiname.count('.ico')==1):
+	elif(s_dateiname.count('.ico')==1):
 		s_contenttype='image/x-icon'
 		
-	if(s_dateiname.count('.zip')==1):
+	elif(s_dateiname.count('.zip')==1):
 		s_contenttype='application/zip'
 		
-	if(s_dateiname.count('.wav')==1):
+	elif(s_dateiname.count('.wav')==1):
 		s_contenttype='audio/x-wav'
 		
 	return s_contenttype
 
 #ini Server and Start
 def ini(s_host,i_port):
-	import sys
-	import socket
-	import pyb
-	
+
 	global show_debug
 	
 	errorcounter=0
@@ -192,14 +191,14 @@ def ini(s_host,i_port):
 	# Loop forever, listening for requests: telnet 192.168.0.46 8080
 	while True:
 		try:
-			print('>>')
+			print('>>------------------------------------<<')
 			csock, caddr = my_socket.accept()  #!!!!!!!!!!!!!!!!! macht errors?
-			
-			
 			print('>1',csock)
+			#print(getTimeStr(), caddr)
+			
+			#if(caddr>0):
 			pyb.LED(3).on() #yellow
 			print('>2',caddr)
-			#print(getTimeStr(), caddr)
 			
 			#empfangene Daten
 			data=csock.recv(512) 		#array of byte
@@ -286,8 +285,6 @@ def ini(s_host,i_port):
 			pyb.delay(1000)
 			break
 		except OSError as er:
-			#kein int, kein str !
-			
 			print ("	OSError",er) 
 			#print (er.args) 
 			#print (er.args[0]) 
@@ -298,12 +295,14 @@ def ini(s_host,i_port):
 			
 			if(er.args[0]==1):
 				print ("Error 1")
-			if(er.args[0]==32):
+			elif(er.args[0]==32):
 				print ("Error 32")
-			if(er.args[0]==-57):
+			elif(er.args[0]==-57):
 				print ("Error -57")
-			if(er.args[0]==57):
+			elif(er.args[0]==57):
 				print ("Error 57")
+			else:
+				print ("	OSError",er) 
 			
 			pyb.LED(1).on()
 			pyb.delay(500)	
