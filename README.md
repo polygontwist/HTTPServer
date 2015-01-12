@@ -27,6 +27,6 @@ per PnTTY (Win7)
 import inic3k
 inic3k.ini()
 
-import httpserver86
-httpserver86.ini('',80)
+import httpserver
+httpserver.ini('',80)
 ```
