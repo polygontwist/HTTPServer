@@ -16,7 +16,7 @@ CLK     |    Y6  (SPI2)
 MISO    |    Y7  (SPI2)
 MOSI    |    Y8  (SPI2)
 ```
-
+Power over USB
 
 using
 -----
